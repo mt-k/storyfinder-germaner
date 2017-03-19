@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="de.tu-darmstadt.lt.ner">
+    <property environment="env"/>
+    <property name="ner-service.location" value="../../../workspace/GermaNERServer/simple-service"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.7"/>
+    <property name="source" value="1.7"/>
+    <path id="Maven Dependencies.libraryclasspath">
+        <pathelement location="/root/.m2/repository/junit/junit/4.10/junit-4.10.jar"/>
+        <pathelement location="/root/.m2/repository/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar"/>
+        <pathelement location="/root/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar"/>
+        <pathelement location="/root/.m2/repository/de/tudarmstadt/ukp/dkpro/core/de.tudarmstadt.ukp.dkpro.core.stanfordnlp-gpl/1.6.0/de.tudarmstadt.ukp.dkpro.core.stanfordnlp-gpl-1.6.0.jar"/>
+        <pathelement location="/root/.m2/repository/org/apache/uima/uimaj-core/2.6.0/uimaj-core-2.6.0.jar"/>
+        <pathelement location="/root/.m2/repository/org/apache/uima/uimafit-core/2.1.0/uimafit-core-2.1.0.jar"/>
+        <pathelement location="/root/.m2/repository/commons-logging/commons-logging-api/1.1/commons-logging-api-1.1.jar"/>
+        <pathelement location="/root/.m2/repository/org/springframework/spring-context/3.1.2.RELEASE/spring-context-3.1.2.RELEASE.jar"/>
+        <pathelement location="/root/.m2/repository/org/springframework/spring-aop/3.1.2.RELEASE/spring-aop-3.1.2.RELEASE.jar"/>
+        <pathelement location="/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar"/>
+        <pathelement location="/root/.m2/repository/org/springframework/spring-expression/3.1.2.RELEASE/spring-expression-3.1.2.RELEASE.jar"/>
+        <pathelement location="/root/.m2/repository/org/springframework/spring-beans/3.1.2.RELEASE/spring-beans-3.1.2.RELEASE.jar"/>
+        <pathelement location="/root/.m2/repository/org/springframework/spring-core/3.1.2.RELEASE/spring-core-3.1.2.RELEASE.jar"/>
+        <pathelement location="/root/.m2/repository/org/springframework/spring-asm/3.1.2.RELEASE/spring-asm-3.1.2.RELEASE.jar"/>
+        <pathelement location="/root/.m2/repository/com/googlecode/efficient-java-matrix-library/ejml/0.23/ejml-0.23.jar"/>
+        <pathelement location="/root/.m2/repository/edu/stanford/nlp/stanford-corenlp/3.3.1/stanford-corenlp-3.3.1.jar"/>
+        <pathelement location="/root/.m2/repository/com/io7m/xom/xom/1.2.10/xom-1.2.10.jar"/>
+        <pathelement location="/root/.m2/repository/xml-apis/xml-apis/1.3.03/xml-apis-1.3.03.jar"/>
+        <pathelement location="/root/.m2/repository/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar"/>
+        <pathelement location="/root/.m2/repository/xalan/xalan/2.7.1/xalan-2.7.1.jar"/>
+        <pathelement location="/root/.m2/repository/xalan/serializer/2.7.1/serializer-2.7.1.jar"/>
+        <pathelement location="/root/.m2/repository/joda-time/joda-time/2.1/joda-time-2.1.jar"/>
+        <pathelement location="/root/.m2/repository/de/jollyday/jollyday/0.4.7/jollyday-0.4.7.jar"/>
+        <pathelement location="/root/.m2/repository/javax/xml/bind/jaxb-api/2.2.7/jaxb-api-2.2.7.jar"/>
+        <pathelement location="/root/.m2/repository/de/tudarmstadt/ukp/dkpro/core/de.tudarmstadt.ukp.dkpro.core.api.resources-asl/1.7.0/de.tudarmstadt.ukp.dkpro.core.api.resources-asl-1.7.0.jar"/>
+        <pathelement location="/root/.m2/repository/org/apache/commons/commons-compress/1.7/commons-compress-1.7.jar"/>
+        <pathelement location="/root/.m2/repository/org/tukaani/xz/1.4/xz-1.4.jar"/>
+        <pathelement location="/root/.m2/repository/org/apache/maven/maven-model/3.0.5/maven-model-3.0.5.jar"/>
+        <pathelement location="/root/.m2/repository/org/apache/ivy/ivy/2.3.0/ivy-2.3.0.jar"/>
+        <pathelement location="/root/.m2/repository/org/codehaus/plexus/plexus-utils/2.0.6/plexus-utils-2.0.6.jar"/>
+        <pathelement location="/root/.m2/repository/de/tudarmstadt/ukp/dkpro/core/de.tudarmstadt.ukp.dkpro.core.api.ner-asl/1.7.0/de.tudarmstadt.ukp.dkpro.core.api.ner-asl-1.7.0.jar"/>
+        <pathelement location="/root/.m2/repository/de/tudarmstadt/ukp/dkpro/core/de.tudarmstadt.ukp.dkpro.core.api.metadata-asl/1.7.0/de.tudarmstadt.ukp.dkpro.core.api.metadata-asl-1.7.0.jar"/>
+        <pathelement location="/root/.m2/repository/org/apache/uima/uimaj-document-annotation/2.6.0/uimaj-document-annotation-2.6.0.jar"/>
+        <pathelement location="/root/.m2/repository/de/tudarmstadt/ukp/dkpro/core/de.tudarmstadt.ukp.dkpro.core.api.coref-asl/1.7.0/de.tudarmstadt.ukp.dkpro.core.api.coref-asl-1.7.0.jar"/>
+        <pathelement location="/root/.m2/repository/de/tudarmstadt/ukp/dkpro/core/de.tudarmstadt.ukp.dkpro.core.api.parameter-asl/1.7.0/de.tudarmstadt.ukp.dkpro.core.api.parameter-asl-1.7.0.jar"/>
+        <pathelement location="/root/.m2/repository/de/tudarmstadt/ukp/dkpro/core/de.tudarmstadt.ukp.dkpro.core.io.xmi-asl/1.7.0/de.tudarmstadt.ukp.dkpro.core.io.xmi-asl-1.7.0.jar"/>
+        <pathelement location="/root/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4.jar"/>
+        <pathelement location="/root/.m2/repository/de/tudarmstadt/ukp/dkpro/core/de.tudarmstadt.ukp.dkpro.core.api.segmentation-asl/1.7.0/de.tudarmstadt.ukp.dkpro.core.api.segmentation-asl-1.7.0.jar"/>
+        <pathelement location="/root/.m2/repository/de/tudarmstadt/ukp/dkpro/core/de.tudarmstadt.ukp.dkpro.core.api.lexmorph-asl/1.7.0/de.tudarmstadt.ukp.dkpro.core.api.lexmorph-asl-1.7.0.jar"/>
+        <pathelement location="/root/.m2/repository/de/tudarmstadt/ukp/dkpro/core/de.tudarmstadt.ukp.dkpro.core.api.syntax-asl/1.7.0/de.tudarmstadt.ukp.dkpro.core.api.syntax-asl-1.7.0.jar"/>
+        <pathelement location="/root/.m2/repository/de/tudarmstadt/ukp/dkpro/core/de.tudarmstadt.ukp.dkpro.core.api.io-asl/1.7.0/de.tudarmstadt.ukp.dkpro.core.api.io-asl-1.7.0.jar"/>
+        <pathelement location="/root/.m2/repository/org/apache/ant/ant/1.8.1/ant-1.8.1.jar"/>
+        <pathelement location="/root/.m2/repository/org/apache/ant/ant-launcher/1.8.1/ant-launcher-1.8.1.jar"/>
+        <pathelement location="/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar"/>
+        <pathelement location="/root/.m2/repository/org/cleartk/cleartk-ml-crfsuite/2.0.0/cleartk-ml-crfsuite-2.0.0.jar"/>
+        <pathelement location="/root/.m2/repository/org/cleartk/cleartk-util/2.0.0/cleartk-util-2.0.0.jar"/>
+        <pathelement location="/root/.m2/repository/com/google/guava/guava/17.0/guava-17.0.jar"/>
+        <pathelement location="/root/.m2/repository/org/cleartk/cleartk-ml/2.0.0/cleartk-ml-2.0.0.jar"/>
+        <pathelement location="/root/.m2/repository/org/cleartk/cleartk-syntax/0.7.0/cleartk-syntax-0.7.0.jar"/>
+        <pathelement location="/root/.m2/repository/org/cleartk/cleartk-type-system/1.2.0/cleartk-type-system-1.2.0.jar"/>
+        <pathelement location="/root/.m2/repository/org/uimafit/uimafit/1.4.0/uimafit-1.4.0.jar"/>
+        <pathelement location="/root/.m2/repository/org/apache/uima/uimaj-tools/2.6.0/uimaj-tools-2.6.0.jar"/>
+        <pathelement location="/root/.m2/repository/org/apache/uima/uimaj-cpe/2.6.0/uimaj-cpe-2.6.0.jar"/>
+        <pathelement location="/root/.m2/repository/org/apache/uima/uimaj-adapter-vinci/2.6.0/uimaj-adapter-vinci-2.6.0.jar"/>
+        <pathelement location="/root/.m2/repository/org/apache/uima/jVinci/2.6.0/jVinci-2.6.0.jar"/>
+        <pathelement location="/root/.m2/repository/com/thoughtworks/xstream/xstream/1.4.1/xstream-1.4.1.jar"/>
+        <pathelement location="/root/.m2/repository/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar"/>
+        <pathelement location="/root/.m2/repository/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar"/>
+        <pathelement location="/root/.m2/repository/de/tudarmstadt/ukp/dkpro/core/de.tudarmstadt.ukp.dkpro.core.snowball-asl/1.7.0/de.tudarmstadt.ukp.dkpro.core.snowball-asl-1.7.0.jar"/>
+        <pathelement location="/root/.m2/repository/org/apache/lucene/lucene-snowball/3.0.3/lucene-snowball-3.0.3.jar"/>
+        <pathelement location="/root/.m2/repository/de/tudarmstadt/ukp/dkpro/core/de.tudarmstadt.ukp.dkpro.core.api.featurepath-asl/1.7.0/de.tudarmstadt.ukp.dkpro.core.api.featurepath-asl-1.7.0.jar"/>
+        <pathelement location="/root/.m2/repository/de/tudarmstadt/ukp/dkpro/core/de.tudarmstadt.ukp.dkpro.core.io.text-asl/1.7.0/de.tudarmstadt.ukp.dkpro.core.io.text-asl-1.7.0.jar"/>
+        <pathelement location="/root/.m2/repository/com/ibm/icu/icu4j/4.8/icu4j-4.8.jar"/>
+        <pathelement location="/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar"/>
+        <pathelement location="/root/.m2/repository/de/tudarmstadt/ukp/dkpro/core/de.tudarmstadt.ukp.dkpro.core.tokit-asl/1.7.0/de.tudarmstadt.ukp.dkpro.core.tokit-asl-1.7.0.jar"/>
+        <pathelement location="/root/.m2/repository/commons-jxpath/commons-jxpath/1.3/commons-jxpath-1.3.jar"/>
+    </path>
+    <path id="de.tu-darmstadt.lt.ner.classpath">
+        <pathelement location="target/classes"/>
+        <pathelement location="target/test-classes"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.GermaNERMain.classpath">
+        <path refid="de.tu-darmstadt.lt.ner.classpath"/>
+        <pathelement location="/tmp"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.SentenceToCRFWriter.classpath">
+        <path refid="de.tu-darmstadt.lt.ner.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.TrainNERModel.classpath">
+        <path refid="de.tu-darmstadt.lt.ner.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <target name="init">
+        <mkdir dir="target/classes"/>
+        <mkdir dir="target/test-classes"/>
+        <copy includeemptydirs="false" todir="target/classes">
+            <fileset dir="src/main/java">
+                <include name="**/*.java"/>
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="target/classes">
+            <fileset dir="src/main/resources">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+                <exclude name="**"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="target/test-classes">
+            <fileset dir="src/test/java">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="target/test-classes">
+            <fileset dir="src/test/resources">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+                <exclude name="**"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="target/classes"/>
+        <delete dir="target/test-classes"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="target/classes" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src/main/java"/>
+            <src path="src/main/resources"/>
+            <include name="**/*.java"/>
+            <exclude name="**"/>
+            <classpath refid="de.tu-darmstadt.lt.ner.classpath"/>
+        </javac>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="target/test-classes" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src/test/java"/>
+            <src path="src/test/resources"/>
+            <exclude name="**"/>
+            <classpath refid="de.tu-darmstadt.lt.ner.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects">
+        <ant antfile="build.xml" dir="${ner-service.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${ner-service.location}" inheritAll="false" target="build"/>
+    </target>
+    <target name="TrainNERModel">
+        <java classname="de.tu.darmstadt.lt.ner.preprocessing.TrainNERModel" failonerror="true" fork="yes">
+            <classpath refid="run.TrainNERModel.classpath"/>
+        </java>
+    </target>
+</project>
